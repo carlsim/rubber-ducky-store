@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Carl Sim">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rubber Ducky</title>
+    <!--Material Design Lite-->
+    <link rel="stylesheet" href="./styles/material.min.css" media="all">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Page styles -->
+    <link rel="stylesheet" href="./styles/main.css" media="all">
+    <!-- Tile color for Win8 -->
+    <meta name="msapplication-TileColor" content="#424242">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hello World">
+    <link rel="icon" sizes="192x192" href="./images/touch/chrome-touch-icon-192x192.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hello World">
+    <link rel="apple-touch-icon" href="./images/touch/apple-touch-icon.png">
+    <!-- Tile icon for Win8 (144x144) -->
+    <meta name="msapplication-TileImage" content="./images/touch/ms-touch-icon-144x144-precomposed.png">
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout">
+        <main class="mdl-layout__content">
+            <div class="product-bg container">
+                <div class="product-title">
+                    <h3>Yellow Rubber Ducky</h3>
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col">
+                        <div class="product-img-area">
+                            <img src="images/Rubber-duck.jpg" height="500" width="500" alt=" Rubber Duck">
+                        </div>
+                    </div>
+                    <div class="mdl cell-mdl-cell--6-col">
+                        <div class="product-features-area">
+                            <div class="product-features-block mdl-card mdl-shadow--2dp">
+                                <div class="features-title-area">
+                                    <h5>Product Description</h5>
+                                    <div class="section-spacer"></div>
+                                    <a class="dropdown-btn" href="javascript:;">More</a>
+                                </div>
+                                <div class="features-text">
+                                    <ul>
+                                        <li>Wow so yellow</li>
+                                        <li>Can float</li>
+                                        <li>Made with <strong>real</strong> rubber</li>
+                                        <li>Can play in the bath</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="product-buy-area">
+                    <div class="section-spacer">
+                    </div>
+                    <div class="product-price">
+                        <h3>$10.00</h3> 
+                    </div>
+                    <div class="product-dropdown-area">
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="purchase-area">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                          Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer container">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--3-col">
+                        <p>About Us</p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col">
+                        <p>Contact</p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col">
+                        <p>Location</p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col">
+                        <p>The Team</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- build:js scripts/combined.js -->
+    <script type="text/javascript" src="./scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./scripts/material.js"></script>
+    <script>
+        function getChar(event) {
+            if (event.which === null) {
+                return String.fromCharCode(event.keyCode);
+            } else if (event.which !== 0 && event.charCode !== 0) {
+                return String.fromCharCode(event.which);
+            } else {
+                return null;
+            }
+        }
+        init();
+        function init(){
+            console.log("in init()");   
+            document.querySelector('.features-text').classList.add('hide');
+            document.querySelector('.dropdown-btn').addEventListener('click', function(){
+                if(document.querySelector('.features-text').classList.contains('hide')){
+                    document.querySelector('.features-text').classList.remove('hide');
+                    document.querySelector('.features-text').classList.add('show');
+                    document.querySelector('.dropdown-btn').innerHTML = 'Less';
+                }else if(document.querySelector('.features-text').classList.contains('show')){
+                    document.querySelector('.features-text').classList.remove('show');
+                    document.querySelector('.features-text').classList.add('hide');
+                    document.querySelector('.dropdown-btn').innerHTML = 'More';
+                }
+            });
+        }
+    </script>
+    <!-- endbuild -->
+</body>
+
+</html>
